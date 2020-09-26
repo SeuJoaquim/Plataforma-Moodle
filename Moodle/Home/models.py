@@ -5,7 +5,7 @@ from django.forms import ModelForm
 class User(models.Model):
     name = models.CharField(max_length=64)
     email = models.CharField(max_length=64)
-    password = models.CharField(max_length=64)
+    senha = models.CharField(max_length=64)
     tipo = models.CharField(max_length=64)
 
     def __str__(self):

@@ -24,6 +24,18 @@ def login(request):
     })
 
 def register(request):
-    return render (request, "Home/register.html")
+    if request.method =='POST':
+        form= NameForm(request.POST)
+        if form.is_valid():
+            return render (request, "Home/user.html",{
+                'form':request.POST
+            })
+
+    else:
+        form = NameForm()
+
+    return render (request, "Home/login.html",{
+        'form':form
+    })
 
     

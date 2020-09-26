@@ -6,7 +6,7 @@ CHOICES = (
     )
 
 class NameForm(forms.Form):
-    username = forms.CharField(label='Nome de usuario', max_length=100)
+    name = forms.CharField(label='Nome de usuario', max_length=100)
     email = forms.EmailField(label='Email')
     senha = forms.CharField(widget=forms.PasswordInput())
     tipo =forms.MultipleChoiceField(choices=CHOICES)
