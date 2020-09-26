@@ -9,5 +9,5 @@ class User(models.Model):
     tipo = models.CharField(max_length=64)
 
     def __str__(self):
-        return f"Name: {self.name}\n email: {self.name}\n password: {self.name}"
+        return f"\nName: {self.name}\n email: {self.email}\n senha: {self.senha}\n tipo: {self.tipo}"
 

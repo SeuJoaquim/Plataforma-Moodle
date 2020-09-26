@@ -10,4 +10,7 @@ class NameForm(forms.Form):
     email = forms.EmailField(label='Email')
     senha = forms.CharField(widget=forms.PasswordInput())
     tipo =forms.MultipleChoiceField(choices=CHOICES)
-    # password = forms.(label='Your password')
+
+class LoginForm(forms.Form):
+    email = forms.EmailField(label='Email')
+    senha = forms.CharField(widget=forms.PasswordInput())
