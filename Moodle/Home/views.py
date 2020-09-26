@@ -2,7 +2,7 @@ from .forms import NameForm, LoginForm
 from .models import User
 
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 # Create your views here.
@@ -20,7 +20,7 @@ def login(request):
                 p = User.objects.get(email=request.POST['email'])
 
                 if request.POST['senha'] == p.senha:
-                    return render (request, "Home/user.html",{
+                    return redirect('/users/'+ p.name,{
                         'form':request.POST})
                 else:
                     return render (request, "Home/login.html",{
