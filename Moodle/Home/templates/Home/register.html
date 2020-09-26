@@ -1,0 +1,12 @@
+{% extends "Home/layout.html" %}
+
+{% block title%}Home{% endblock %}
+
+{% block body %}
+    <h1>Registrar</h1>
+    <form method="POST">
+        {%csrf_token%}
+        in
+        <button type="submit"> Logar</button>
+    </form>
+{% endblock %}

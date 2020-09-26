@@ -1,0 +1,25 @@
+{% extends "Home/layout.html" %}
+
+{% block title%}Home{% endblock %}
+
+{% block script%}
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const change = document.querySelector("#tipo").innerHTML;
+            if (change==='1'){
+                document.querySelector("#tipo").innerHTML = "Tipo: Aluno"
+                console.log(change)
+            } else{
+                document.querySelector('#tipo').innerHTML = "Tipo: Professor"
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <ul>
+        <li>Bem vindo {{form.username}}</li>
+        <li>Email: {{form.email}}</li>
+        <li id="tipo">{{form.tipo}}</li>
+    </ul>
+{% endblock %}
