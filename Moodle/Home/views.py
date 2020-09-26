@@ -15,10 +15,21 @@ def login(request):
     if request.method =='POST':
         form= LoginForm(request.POST)
         if form.is_valid():
-            User.objects.filter(email=request.POST['email'])
-            return render (request, "Home/user.html",{
-                'form':request.POST
-            })
+            form_auth= str(User.objects.filter(email=request.POST['email']))
+            if form_auth != '<QuerySet []>':    
+                p = User.objects.get(email=request.POST['email'])
+
+                if request.POST['senha'] == p.senha:
+                    return render (request, "Home/user.html",{
+                        'form':request.POST})
+                else:
+                    return render (request, "Home/login.html",{
+                    'message': "Senha inválida",
+                    'form': form})
+            else:
+                return render (request, "Home/login.html",{
+                    'message': "Email não cadastrado",
+                    'form': form})
 
     else:
         form = LoginForm()
