@@ -1,13 +1,7 @@
 from django.db import models
-from django.forms import ModelForm
 
 # Create your models here.
-class User(models.Model):
-    name = models.CharField(max_length=64)
-    email = models.CharField(max_length=64)
-    senha = models.CharField(max_length=64)
-    tipo = models.CharField(max_length=64)
-
-    def __str__(self):
-        return f"\n Name: {self.name}\n email: {self.email} \n tipo: {self.tipo}\n "
+class Cursos(models.Model):
+    nome= models.CharField(max_length=100)
+    areaDc= models.CharField(max_length=100)
 
