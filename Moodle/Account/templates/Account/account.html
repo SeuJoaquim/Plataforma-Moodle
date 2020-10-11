@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title%}Account{% endblock %}
+
+{% block body %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">CodingWithMithBlog</h1>
+    <p class="lead">In this course</p>
+</div>
+
+<div class="container">
+    <div class="d-flex flex-column"> 
+        <h4>Register users: </h4>
+        {% for account in accounts%}
+            <p>{{account}}</p>
+        {% endfor%}
+
+    </div>
+</div>
+
+<div class="container"">
+    alo
+</div>
+{% endblock %}

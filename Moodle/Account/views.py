@@ -58,13 +58,26 @@ def login_view(request):
     context['login_form'] = form
     return render(request, 'Account/login.html', context)
 
+def account(request):
+    
+    if not request.user.is_authenticated:
+        return redirect("login")
+    context = {}
+    context['email'] = request.user.email
+    context['username'] = request.user.username
+    context['is_professor'] = request.user.is_professor
+    context['last_login'] = request.user.last_login
+    
+    return render(request, "Account/account.html", context)
+    
+
 def account_view(request):
 
     if not request.user.is_authenticated:
         return redirect("login")
 
     context = {}
-
+    context['is_professor'] = request.user.is_professor
     if request.POST:
         form = AccountUpdateForm(request.POST, instance=request.user)
         if form.is_valid():
@@ -83,4 +96,11 @@ def account_view(request):
         )
     context['account_form'] = form
     return render(request, "Account/user.html", context)
+
+def professor_auth(request):
+    user = request.user
+    if user.is_authenticated:
+        user.is_professor = True
+        user.save()
+    return redirect("account")
     

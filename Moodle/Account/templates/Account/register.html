@@ -1,11 +1,10 @@
-{% extends "Home/layout.html" %}
+{% extends "layout.html" %}
 
-{% block title%}Home{% endblock %}
+{% block title%}Register{% endblock %}
 
 {% block body %}
-    <h1>Registrar</h1>
     <form class="form-signin" method="POST">{% csrf_token %}
-        <h1 class="h3 mb-3 font-weight-normal">Register Account</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Registrar</h1>
         <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" value="{{account_form.initial.username}}" required>
         <input type="password" name="password1" id="inputPassword1" class="form-control" placeholder="Password" required>

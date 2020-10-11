@@ -1,4 +1,4 @@
-{% extends "Account/layout.html" %}
+{% extends "layout.html" %}
 
 {% block title%}Home{% endblock %}
 
@@ -32,4 +32,5 @@
 <div class="d-flex flex-column">
     <a class="m-auto" href="{% url 'password_change' %}">Change Password</a>
 </div>
+<a class="m-auto" href="{% url 'professor_auth' %}">Professor authenticator</a>
 {% endblock %}
